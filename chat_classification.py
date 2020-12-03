@@ -37,6 +37,9 @@ except:
     df_sms = pdx.read_xml(xml_path, encoding="utf8")
     name, df = add_features(df_sms)
 
+#df_sms = pdx.read_xml(xml_path, encoding="utf8")
+#name, df = add_features(df_sms)
+
 df['person'] = df['person'].astype(int)
 first = df['person'][0]
 countt = [0,0]
