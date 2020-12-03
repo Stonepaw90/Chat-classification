@@ -26,9 +26,15 @@ st.header("By Cameron Abbot and Abraham Holleran")
 st.write("We can use a Naive Bayes classifier to detect if a sentence is more likely\
  to be said by you or your friend. Simply download the \"SMS Backup & Restore\" app and\
          download the messages as an xml file. Then, write the path to that file here.")
-st.write("Please write the path to your xml.")
-xml_path = st.text_input("", "https://raw.githubusercontent.com/Stonepaw90/Chat-classification/main/abby.xml")
-df_sms = pdx.read_xml(xml_path, encoding="utf8")
+st.write("Please write the path to your xml (or id of Google Drive file).")
+xml_path = st.text_input("", "https://drive.google.com/uc?id=1YkZKX_7YsERRb1i3kUSzKTBpAZjyizoR")
+
+try:
+    xml_path = "://drive.google.com/uc?id="
+    df_sms = pdx.read_xml(xml_path, encoding="utf8")
+except:
+    df_sms = pdx.read_xml(xml_path, encoding="utf8")
+
 name, df = add_features(df_sms)
 
 df['person'] = df['person'].astype(int)
