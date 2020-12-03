@@ -30,7 +30,7 @@ st.write("Please write the path to your xml (or id of Google Drive file).")
 xml_path = st.text_input("", "https://drive.google.com/uc?id=1YkZKX_7YsERRb1i3kUSzKTBpAZjyizoR")
 
 try:
-    df_sms = pdx.read_xml("://drive.google.com/uc?id=" + xml_path, encoding="utf8")
+    df_sms = pdx.read_xml("https://drive.google.com/uc?id=" + xml_path, encoding="utf8")
 except:
     df_sms = pdx.read_xml(xml_path, encoding="utf8")
 
