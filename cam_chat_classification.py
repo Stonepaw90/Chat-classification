@@ -25,7 +25,7 @@ from time import time
 
 
 # data path to xml file
-df_sms = pdx.read_xml("G:/College/Machine Learning/data/addison.xml", encoding="utf8")
+#df_sms = pdx.read_xml("G:/College/Machine Learning/data/addison.xml", encoding="utf8")
 def add_features(df_sms):
 # value is an ordered dictionary, which can then be converted back to a dataframe
     dictionary = df_sms.at['sms','smses']
