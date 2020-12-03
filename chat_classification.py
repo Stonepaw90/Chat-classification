@@ -30,10 +30,10 @@ st.write("Please write the path to your xml (or id of Google Drive file).")
 # For now use Abby's data as default
 xml_path = st.text_input("", "https://drive.google.com/uc?id=1YkZKX_7YsERRb1i3kUSzKTBpAZjyizoR")
 
-try:
-    df_sms = pdx.read_xml("https://drive.google.com/uc?id=" + xml_path, encoding="utf8")
-    name, df = add_features(df_sms) 
-except:
+#try:
+#    df_sms = pdx.read_xml("https://drive.google.com/uc?id=" + xml_path, encoding="utf8")
+#    name, df = add_features(df_sms) 
+#except:
     df_sms = pdx.read_xml(xml_path, encoding="utf8")
     name, df = add_features(df_sms)
 
