@@ -34,7 +34,7 @@ xml_path = st.text_input("URL path to xml data file", "")
 # Prevents running errors before user has entered data file URL
 if(xml_path == ""):
     st.write("No data entered.")
-    return
+    st.stop()
 
 try:
     df_sms = pdx.read_xml("https://drive.google.com/uc?id=" + xml_path, encoding="utf8")
