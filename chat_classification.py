@@ -27,7 +27,7 @@ st.write("We can use a Naive Bayes classifier to detect if a sentence is more li
  to be said by you or your friend. Simply download the \"SMS Backup & Restore\" app and\
          download the messages as an xml file. Then, write the path to that file here.")
 
-st.write("You can either type in the url path to the xml file, or for convenience you can enter the ID of the Google Drive file. If you host the file on drive and turn link sharing on, the link will include the ID: https://drive.google.com/file/d/THIS_IS_THE_ID//view?usp=sharing")
+st.write("You can either type in the url path to the xml file, or for convenience you can enter the ID of the Google Drive file. If you host the file on drive and turn link sharing on, the link will include the ID: drive.google.com/file/d/THIS_IS_THE_ID//view?usp=sharing")
 
 xml_path = st.text_input("URL path to xml data file", "")
 
@@ -37,9 +37,6 @@ try:
 except:
     df_sms = pdx.read_xml(xml_path, encoding="utf8")
     name, df = add_features(df_sms)
-
-#df_sms = pdx.read_xml(xml_path, encoding="utf8")
-#name, df = add_features(df_sms)
 
 df['person'] = df['person'].astype(int)
 first = df['person'][0]
