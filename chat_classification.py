@@ -34,6 +34,7 @@ xml_path = st.text_input("URL path to xml data file", "")
 # Prevents running errors before user has entered data file URL
 if(xml_path == ""):
     st.write("No data entered.")
+    tb_main()
     st.stop()
 
 try:
@@ -98,27 +99,27 @@ st.write(f"With {round(score, 2)}% accuracy on the test data, \
 we predict that your message was said by {potential_author}.")
 
 
+def tb_main():
+    tb_im = Image.open('Trump-or-Biden.jpg')
+    st.image(tb_im, caption='Commander in Chief', use_column_width=True)
+    st.header("Trump/Biden classification")
+    st.write("Please input your data and your message to classify as Trump/Biden.")
+    user_tb_text = st.text_input("Text to classify goes here:", "Will you shut up, man")
+    #Classify as Trump/Biden by removing all the welker, wallace stuff.
 
-tb_im = Image.open('Trump-or-Biden.jpg')
-st.image(tb_im, caption='Commander in Chief', use_column_width=True)
-st.header("Trump/Biden classification")
-st.write("Please input your data and your message to classify as Trump/Biden.")
-user_tb_text = st.text_input("Text to classify goes here:", "Will you shut up, man")
-#Classify as Trump/Biden by removing all the welker, wallace stuff.
+    first_debate, second_debate = get_prepared_csvs()
+    trump_biden_data = get_trump_biden_data(second_debate, first_debate)
+    X, y = get_train_data(trump_biden_data)
+    transformer = CountVectorizer(analyzer=text_process).fit(X)
+    all_train = transformer.transform(X)
+    model = model.fit(all_train, y)
 
-first_debate, second_debate = get_prepared_csvs()
-trump_biden_data = get_trump_biden_data(second_debate, first_debate)
-X, y = get_train_data(trump_biden_data)
-transformer = CountVectorizer(analyzer=text_process).fit(X)
-all_train = transformer.transform(X)
-model = model.fit(all_train, y)
-
-user_tb_text = pd.Series(user_tb_text)
-user_transformed = transformer.transform(user_tb_text)
-pred_speaker = model.predict(user_transformed)
-if pred_speaker[0] == 0:
-    pred_speaker = "Biden"
-elif pred_speaker[0] == 1:
-    pred_speaker = "Trump"
-st.write(f"With >80% accuracy, we predict that the message was said by {pred_speaker}.")
+    user_tb_text = pd.Series(user_tb_text)
+    user_transformed = transformer.transform(user_tb_text)
+    pred_speaker = model.predict(user_transformed)
+    if pred_speaker[0] == 0:
+        pred_speaker = "Biden"
+    elif pred_speaker[0] == 1:
+        pred_speaker = "Trump"
+    st.write(f"With >80% accuracy, we predict that the message was said by {pred_speaker}.")
 
