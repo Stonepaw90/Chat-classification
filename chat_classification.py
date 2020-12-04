@@ -17,7 +17,7 @@ from collections import OrderedDict
 from sklearn.metrics import confusion_matrix
 
 
-model = MultinomialNB()
+
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
 st.title("Text classification")
@@ -31,6 +31,7 @@ st.write("You can either type in the url path to the xml file, or for convenienc
 
 xml_path = st.text_input("URL path to xml data file", "")
 def tb_main():
+    model = MultinomialNB()
     tb_im = Image.open('Trump-or-Biden.jpg')
     st.image(tb_im, caption='Commander in Chief', use_column_width=True)
     st.header("Trump/Biden classification")
