@@ -32,7 +32,7 @@ st.write("You can either type in the url path to the xml file, or for convenienc
 xml_path = st.text_input("URL path to xml data file", "")
 
 # Prevents running errors before user has entered data file URL
-if(xml_path == false):
+if(xml_path == ""):
     st.write("No data entered.")
     quit()
 
