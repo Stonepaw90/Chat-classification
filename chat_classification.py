@@ -120,5 +120,6 @@ else:
 
 st.write(f"With {round(score, 2)}% accuracy on the test data, \
 we predict that your message was said by {potential_author}.")
+tb_main()
 
 
