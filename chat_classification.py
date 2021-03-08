@@ -23,8 +23,9 @@ st.set_option('deprecation.showfileUploaderEncoding', False)
 st.title("Text classification")
 st.header("By Cameron Abbot and Abraham Holleran")
 
-st.write("We can use a Naive Bayes classifier to detect if a sentence is more likely\
- to be said by you or your friend. Simply download the \"SMS Backup & Restore\" app and\
+st.write("Everyone has idiosyncrasies in their speech. A computer can quantify that and learn our speech patterns.\
+In this app, we use a Naive Bayes classifier to train the computer to predict who is more likely to say any given sentence. \
+You can run this on Android text data with you and a friend. Simply download the \"SMS Backup & Restore\" app and\
          download the messages as an xml file. Then, write the path to that file here.")
 
 st.write("You can either type in the url path to the xml file, or for convenience you can enter the ID of the Google Drive file. If you host the file on drive and turn link sharing on, the link will include the ID: drive.google.com/file/d/THIS_IS_THE_ID//view?usp=sharing")
