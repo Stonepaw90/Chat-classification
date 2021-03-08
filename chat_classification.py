@@ -36,8 +36,8 @@ def tb_main():
     model = MultinomialNB()
     tb_im = Image.open('Trump-or-Biden.jpg')
     st.image(tb_im, caption='Commander in Chief', use_column_width=True)
-    st.header("Trump/Biden classification")
-    st.write("Please input your data and your message to classify as Trump/Biden.")
+    st.header("Classification of speech from the 2016 Presidential Debates")
+    st.write("Type a message and see if it's more likely to be said by Trump or Biden.")
     user_tb_text = st.text_input("Text to classify goes here:", "Will you shut up, man")
     #Classify as Trump/Biden by removing all the welker, wallace stuff.
 
@@ -55,7 +55,7 @@ def tb_main():
         pred_speaker = "Biden"
     elif pred_speaker[0] == 1:
         pred_speaker = "Trump"
-    st.write(f"With >80% accuracy, we predict that the message was said by {pred_speaker}.")
+    st.write(f"With >80% accuracy on the test data, we predict that the message was said by {pred_speaker}.")
 # Prevents running errors before user has entered data file URL
 if(xml_path == ""):
     st.write("No data entered.")
@@ -120,8 +120,8 @@ else:
     potential_author = 'you'
 
 
-st.write(f"With {round(score, 2)}% accuracy on the test data, \
-we predict that your message was said by {potential_author}.")
+st.write(f"Our accuracy on the test data was {round(score, 2)}%. \
+The computer predicts that your message was said by {potential_author}.")
 tb_main()
 
 
