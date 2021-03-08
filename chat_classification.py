@@ -31,7 +31,7 @@ You can run this on Android text data with you and a friend. Simply download the
 st.write("Please input either your system's path to the xml file or the file's Google Drive ID. \
 For Google Drive, upload the xml file, turn link sharing on and paste in the ID from the link: drive.google.com/file/d/ID_is_found_here/view?usp=sharing")
 
-xml_path = st.text_input("System path or google drive link", "")
+xml_path = st.text_input("System path or Google Drive ID", "")
 def tb_main():
     model = MultinomialNB()
     tb_im = Image.open('Trump-or-Biden.jpg')
