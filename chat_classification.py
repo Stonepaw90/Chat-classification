@@ -28,8 +28,8 @@ In this app, we use a Naive Bayes classifier to train the computer to predict wh
 You can run this on Android text data with you and a friend. Simply download the \"SMS Backup & Restore\" app and\
          download the messages as an xml file.")
 
-st.write("Please input either your system's path to the xml file or your Google Drive link to the xml file. \
-For Google Drive, turn link sharing on and paste the link here.")
+st.write("Please input either your system's path to the xml file or the file's Google Drive ID. \
+For Google Drive, upload the xml file, turn link sharing on and paste in the ID from the link: drive.google.com/file/d/ID_is_found_here/view?usp=sharing")
 
 xml_path = st.text_input("System path or google drive link", "")
 def tb_main():
