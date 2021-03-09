@@ -20,7 +20,7 @@ from sklearn.metrics import confusion_matrix
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
-st.title("Classification of Texts")
+st.title("Machines Learning Speech Patterns")
 st.header("By Cameron Abbot and Abraham Holleran")
 
 st.write("Everyone has idiosyncrasies in their speech. A computer can quantify these and learn our speech patterns. \
